@@ -1,5 +1,7 @@
 export default async function Page() {
+  console.log("BACKEND_URL:", process.env.BACKEND_URL)
   const api = process.env.BACKEND_URL
+  
   const response = await fetch(`${api}/products`);
   const data = await response.json();
   console.log(data);
