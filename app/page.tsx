@@ -1,22 +1,17 @@
+export const revalidate = 0  // o `export const dynamic = "force-dynamic";`
+
 export default async function Page() {
-  console.log("BACKEND_URL:", process.env.BACKEND_URL)
+  const api = process.env.BACKEND_URL;
 
-  try {
-    const response = await fetch(`${process.env.BACKEND_URL}/products`, {
-      cache: "no-store",
-    })
+  const response = await fetch(`${api}/products`, { cache: "no-store" });
+  const data = await response.json();
 
-    console.log("STATUS:", response.status)
-
-    const data = await response.json()
-    console.log("DATA:", data)
-  } catch (error) {
-    console.error("FETCH ERROR:", error)
-  }
+  console.log("DATA:", data);
 
   return (
     <div>
       <h1>Hola amore ! Te amoo</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
-  )
+  );
 }
