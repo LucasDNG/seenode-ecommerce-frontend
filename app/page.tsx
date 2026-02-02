@@ -9,7 +9,7 @@ export default async function Page() {
 
   return (
     <div>
-      <h1>Hola amore ! Te amoo</h1>
+      <h1>Hola amore ! Te amoo &#x2764;&#xFE0F</h1>
 
     </div>
   );
